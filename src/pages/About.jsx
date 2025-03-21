@@ -91,12 +91,12 @@ const About = () => {
         </div>
       </div>
 
-      {/* Certificates Section with Infinite Marquee */}
-      <div className="py-10 flex flex-col">
+      {/* Certificates Section with Marquee Fix */}
+      <div className="py-10">
         <h3 className="subhead-text text-center text-2xl sm:text-3xl font-semibold">My Certificates</h3>
 
-        <div className="mt-10">
-          <Marquee pauseOnHover speed={50} gradient={true} gradientWidth={100}>
+        <div className="mt-10 overflow-hidden relative">
+          <Marquee pauseOnHover speed={50} gradient={true} gradientColor={[245, 245, 245]} gradientWidth={50} className="px-2 sm:px-6">
             {[
               { key: "CS50x", src: "/certificates/CS50x2.png", title: "Harvard CS50 Certificate" },
               { key: "AWS", src: "/certificates/Openshift.png", title: "Red Hat Openshift Administrator (DO280)" },
@@ -109,15 +109,12 @@ const About = () => {
               { key: "Goldman", src: "/certificates/Goldman.png", title: "Goldman Sachs Software Engineering Job Simulation" }
             ].map((cert) => (
               <div key={cert.key} className="mx-4 flex flex-col items-center">
-                <div className="certificate-box">
-                  <img
-                    src={cert.src}
-                    alt={cert.title}
-                    className="w-40 sm:w-48 md:w-60 h-auto rounded-lg shadow-lg cursor-pointer"
-                    onClick={() => openModal(cert.src)}
-                  />
+                <div className="border-4 border-black p-2 rounded-lg shadow-lg">
+                  <img src={cert.src} alt={cert.title} className="w-28 sm:w-36 md:w-48 h-auto rounded-lg cursor-pointer" onClick={() => openModal(cert.src)} />
                 </div>
-                <p className="mt-3 text-center text-sm font-medium text-gray-600 w-40 sm:w-48 md:w-60 h-10 flex items-center justify-center">{cert.title}</p>
+                <p className="mt-2 text-center text-sm font-medium text-gray-600 w-28 sm:w-36 md:w-48">
+                  {cert.title}
+                </p>
               </div>
             ))}
           </Marquee>
@@ -169,6 +166,179 @@ const About = () => {
 };
 
 export default About;
+
+
+// import React, { useState } from 'react';
+// import { skills, experiences } from '../constants';
+// import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
+// import 'react-vertical-timeline-component/style.min.css';
+// import CTA from '../components/CTA';
+// import Marquee from 'react-fast-marquee';
+// import MyBadges from '../pages/MyBadges';
+
+// const About = () => {
+//   const [isModalOpen, setIsModalOpen] = useState(false);
+//   const [selectedImage, setSelectedImage] = useState(null);
+
+//   // Open modal with selected image
+//   const openModal = (image) => {
+//     setSelectedImage(image);
+//     setIsModalOpen(true);
+//   };
+
+//   // Close modal
+//   const closeModal = () => {
+//     setIsModalOpen(false);
+//     setSelectedImage(null);
+//   };
+
+//   return (
+//     <section className="max-container px-4 sm:px-8 lg:px-16 py-8">
+//       <h1 className="head-text text-center text-3xl sm:text-4xl md:text-5xl font-semibold">
+//         Hello, I'm <span className="blue-gradient_text font-semibold drop-shadow">Abhishek</span>
+//       </h1>
+
+//       <div className="mt-5 flex flex-col gap-3 text-slate-500 text-center">
+//         <p className="text-lg sm:text-xl">Harvard Certified Software Engineer</p>
+//       </div>
+
+//       {/* Skills Section */}
+//       <div className="mt-16 flex flex-wrap justify-center gap-8">
+//         {skills.map((skill) => (
+//           <div key={skill.name} className="block-container w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28">
+//             <div className="btn-back rounded-xl" />
+//             <div className="btn-front rounded-xl flex justify-center items-center">
+//               <img
+//                 src={skill.imageUrl}
+//                 alt={skill.name}
+//                 className="w-1/2 h-1/2 object-contain"
+//               />
+//             </div>
+//           </div>
+//         ))}
+//       </div>
+
+//       {/* Work Experience Section */}
+//       <div className="py-16">
+//         <h3 className="subhead-text text-center text-2xl sm:text-3xl font-semibold">Work Experience</h3>
+//         <div className="mt-5 flex flex-col gap-3 text-slate-500 text-center">
+//           <p className="text-lg sm:text-xl">I've worked with all sorts of companies, leveling up my skills and teaming up with smart people. Here's the rundown:</p>
+//         </div>
+
+//         <div className="mt-12 flex justify-center">
+//           <VerticalTimeline>
+//             {experiences.map((experience) => (
+//               <VerticalTimelineElement
+//                 key={experience.company_name}
+//                 date={experience.date}
+//                 icon={<div className="flex justify-center items-center w-full h-full">
+//                   <img
+//                     src={experience.icon}
+//                     alt={experience.company_name}
+//                     className="w-[60%] h-[60%] object-contain"
+//                   />
+//                 </div>}
+//                 iconStyle={{ background: experience.iconBg }}
+//                 contentStyle={{
+//                   borderBottom: '8px',
+//                   borderStyle: 'solid',
+//                   borderBottomColor: experience.iconBg,
+//                   boxShadow: 'none',
+//                 }}
+//               >
+//                 <div>
+//                   <h3 className="text-black text-xl font-poppins font-semibold">{experience.title}</h3>
+//                   <p className="text-black-500 font-medium">{experience.company_name}</p>
+//                 </div>
+//                 <ul className="my-5 list-disc ml-5 space-y-2">
+//                   {experience.points.map((point, index) => (
+//                     <li key={`experience-point-${index}`} className="text-black-500/50 font-normal pl-1 text-sm">{point}</li>
+//                   ))}
+//                 </ul>
+//               </VerticalTimelineElement>
+//             ))}
+//           </VerticalTimeline>
+//         </div>
+//       </div>
+
+//       {/* Certificates Section with Infinite Marquee */}
+//       <div className="py-10 flex flex-col">
+//         <h3 className="subhead-text text-center text-2xl sm:text-3xl font-semibold">My Certificates</h3>
+
+//         <div className="mt-10">
+//           <Marquee pauseOnHover speed={50} gradient={true} gradientWidth={100}>
+//             {[
+//               { key: "CS50x", src: "/certificates/CS50x2.png", title: "Harvard CS50 Certificate" },
+//               { key: "AWS", src: "/certificates/Openshift.png", title: "Red Hat Openshift Administrator (DO280)" },
+//               { key: "ReactNanodegree", src: "/certificates/RHCSA.png", title: "Red Hat Certified System Administrator" },
+//               { key: "Imperial", src: "/certificates/Imperial.png", title: "Imperial College London Creative Thinking Certificate" },
+//               { key: "Networking", src: "/certificates/Networking.png", title: "Introduction to Networking by NVIDIA" },
+//               { key: "Docker", src: "/certificates/Docker.png", title: "Docker Essentials by IBM" },
+//               { key: "Kubernetes", src: "/certificates/Kubernetes.png", title: "Container and Kubernetes Essentials by IBM" },
+//               { key: "Open", src: "/certificates/Open Source.png", title: "Open Source Foundations by IBM" },
+//               { key: "Goldman", src: "/certificates/Goldman.png", title: "Goldman Sachs Software Engineering Job Simulation" }
+//             ].map((cert) => (
+//               <div key={cert.key} className="mx-4 flex flex-col items-center">
+//                 <div className="certificate-box">
+//                   <img
+//                     src={cert.src}
+//                     alt={cert.title}
+//                     className="w-40 sm:w-48 md:w-60 h-auto rounded-lg shadow-lg cursor-pointer"
+//                     onClick={() => openModal(cert.src)}
+//                   />
+//                 </div>
+//                 <p className="mt-3 text-center text-sm font-medium text-gray-600 w-40 sm:w-48 md:w-60 h-10 flex items-center justify-center">{cert.title}</p>
+//               </div>
+//             ))}
+//           </Marquee>
+//         </div>
+//       </div>
+
+//       {/* Modal to Enlarge Image */}
+//       {isModalOpen && (
+//         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+//           <div className="relative">
+//             <img
+//               src={selectedImage}
+//               alt="Enlarged Certificate"
+//               className="w-[80vw] h-auto max-h-[80vh] object-contain"
+//             />
+//             <button
+//               onClick={closeModal}
+//               className="absolute top-0 right-0 text-white font-semibold text-xl p-3"
+//             >
+//               X
+//             </button>
+//           </div>
+//         </div>
+//       )}
+
+//       {/* MyBadges Section */}
+//       <MyBadges />
+
+//       {/* Download Resume Section */}
+//       <div className="flex justify-center mt-10">
+//         <a 
+//           href="/abhishek_jadhav_resume.pdf" 
+//           download 
+//           className="text-xl sm:text-2xl md:text-3xl font-semibold"
+//         >
+//           Click Here to Download  
+//           <span className="relative inline-block bg-gradient-to-r from-blue-500 to-purple-600 text-white px-3 py-1 ml-2 rounded-lg shadow-md shadow-blue-400/50 transition-transform transform hover:scale-105 hover:shadow-xl">
+//             My Resume
+//           </span>
+//         </a>
+//       </div>
+
+//       <hr className="border-slate-200 mt-16" />
+
+//       {/* Call to Action */}
+//       <CTA />
+//     </section>
+//   );
+// };
+
+// export default About;
 
 
 // import React, { useState } from 'react';

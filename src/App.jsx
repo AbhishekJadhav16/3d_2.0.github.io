@@ -99,11 +99,12 @@ const App = () => {
                                     animate={{ scale: 1 }}
                                     transition={{ duration: 1.2, repeat: Infinity, repeatType: "mirror" }}
                                 >
+                                    <span>OR Use arrow keys</span>
+
                                     <FaArrowUp className="text-blue-400 text-2xl" />
                                     <FaArrowLeft className="text-blue-400 text-2xl" />
                                     <FaArrowDown className="text-blue-400 text-2xl" />
                                     <FaArrowRight className="text-blue-400 text-2xl" />
-                                    <span>Or Use arrow keys</span>
                                 </motion.div>
                             </motion.div>
                         )}
