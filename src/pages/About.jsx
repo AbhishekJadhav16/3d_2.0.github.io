@@ -5,6 +5,9 @@ import 'react-vertical-timeline-component/style.min.css';
 import CTA from '../components/CTA';
 import Marquee from 'react-fast-marquee';
 import MyBadges from '../pages/MyBadges';
+import devOpsImage from '../assets/images/devops.png';  // Adjust the path according to your project structure
+import { motion } from 'framer-motion';
+
 
 const About = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -33,7 +36,7 @@ const About = () => {
       </div>
 
       {/* Skills Section */}
-      <div className="mt-16 flex flex-wrap justify-center gap-8">
+      {/* <div className="mt-16 flex flex-wrap justify-center gap-8">
         {skills.map((skill) => (
           <div key={skill.name} className="block-container w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28">
             <div className="btn-back rounded-xl" />
@@ -46,8 +49,56 @@ const About = () => {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
 
+              {/* Skills Section */}
+        <div className="mt-16 flex flex-wrap justify-center gap-8">
+          {skills.map((skill) => (
+            <div key={skill.name} className="block-container w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24">
+              <div className="btn-back rounded-xl" />
+              <div className="btn-front rounded-xl flex justify-center items-center">
+                <img
+                  src={skill.imageUrl}
+                  alt={skill.name}
+                  className="w-1/2 h-1/2 object-contain"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* DevOps Tool Stack Section */}
+        <div className="py-16 px-4">
+  <h3 className="text-center text-2xl sm:text-3xl font-semibold subhead-text mb-10">
+    My DevOps Tool Stack
+  </h3>
+
+  <div className="flex justify-center">
+    <motion.div
+      className="relative w-full max-w-[900px] rounded-3xl p-1 bg-gradient-to-r from-p via-black to-purple-700 shadow-2xl"
+      whileHover={{
+        scale: 1.12,
+        rotateZ: 1,
+        rotateX: 8,
+        rotateY: -8,
+      }}
+      transition={{ type: "spring", stiffness: 80 }}
+    >
+      {/* Glass container with thinner black border */}
+      <div className="relative rounded-3xl bg-black border-[2px] border-neutral-900 p-2 sm:p-4 backdrop-blur-md">
+        <img
+          src={devOpsImage}
+          alt="DevOps Tools"
+          className="w-full h-full object-contain rounded-2xl shadow-xl"
+        />
+      </div>
+    </motion.div>
+  </div>
+</div>
+
+
+
+      
       {/* Work Experience Section */}
       <div className="py-16">
         <h3 className="subhead-text text-center text-2xl sm:text-3xl font-semibold">Work Experience</h3>
