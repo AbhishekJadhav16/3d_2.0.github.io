@@ -45,7 +45,11 @@ const App = () => {
 
   return (
     <Router>
-      <main className={`min-h-screen relative flex justify-center items-center ${showContent ? "bg-transparent" : "bg-black"}`}>
+      <main
+        className={`min-h-screen w-full flex justify-center items-center ${
+          showContent ? "bg-transparent" : "bg-black"
+        } overflow-hidden`} // Prevent scrolling and center content
+      >
         {showLoadingScreen && (
           <motion.div
             className="absolute inset-0 bg-black z-50 flex flex-col items-center justify-center"
