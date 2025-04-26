@@ -1,4 +1,6 @@
 import { meta, shopify, starbucks, tesla } from "../assets/images";
+import Amazon_logo from '../assets/icons/Amazon_logo.png'; // adjust path based on your project structure
+import cybage from '../assets/icons/cybage.png';
 import {
     car,
     contact,
@@ -111,57 +113,69 @@ export const skills = [
 
 export const experiences = [
     {
-        title: "React.js Developer",
-        company_name: "Starbucks",  
-        icon: starbucks,
+        title: "Devops Engineer",
+        company_name: "Cybage",  
+        icon: cybage,
         iconBg: "#accbe1",
-        date: "March 2020 - April 2021",
+        date: "JAN 2022 – PRESENT",
         points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
-        ],
+            "Installed, configured, and managed Red Hat OpenShift clusters, ensuring scalability, high availability, and optimal performance.",
+            "Performed cluster initialization, networking setup, and managed nodes, pods, and other resources to support application deployments.",
+            "Deployed and managed containerized applications using OpenShift Operators and Helm charts for streamlined operations.",
+            "Implemented role-based access control (RBAC) to enforce security policies and manage user access effectively.",
+            "Ensured compliance and vulnerability management by integrating tools like Trivy, Snyk, and SonarQube into DevSecOps pipelines.",
+            "Monitored cluster health and application performance using OpenShift monitoring tools, including Prometheus and Grafana.",
+            "Built custom dashboards for tools like Trivy to enhance vulnerability tracking and reporting.",
+            "Automated build, test, and deployment processes using Jenkins with master-slave configurations and customized build jobs.",
+            "Designed and implemented CI/CD pipelines using Jenkins, Docker, and Amazon S3 for efficient artifact storage and deployment.",
+            "Configured and deployed GitLab CI/CD pipelines using GitLab Runner and GitHub Actions pipelines using GitHub Runner.",
+            "Migrated CI/CD pipelines, including transitions from GitHub to GitLab and CircleCI to GitHub Actions.",
+            "Integrated JFrog Artifactory with tools like Jenkins for seamless artifact management.",
+            "Optimized development workflows by implementing best practices in DevOps and DevSecOps across multiple projects.",
+            "Delivered comprehensive training programs on ALM tools such as Jira, Confluence, Maven, SonarQube, Jenkins, GitHub, and GitLab to both freshers and experienced professionals.",
+            "Developed a centralized training website to manage resources like presentations, notes, bookmarks, calendars, and other training materials."
+        ],        
     },
     {
-        title: "React Native Developer",
-        company_name: "Tesla",
-        icon: tesla,
-        iconBg: "#fbc3bc",
-        date: "Jan 2021 - Feb 2022",
-        points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
-        ],
-    },
-    {
-        title: "Web Developer",
-        company_name: "Shopify",
-        icon: shopify,
+        title: "Customer Service Associate",
+        company_name: "Amazon",
+        icon: Amazon_logo,
         iconBg: "#b7e4c7",
-        date: "Jan 2022 - Jan 2023",
+        date: "June 2018 - May 2021",
         points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
-        ],
+            "Provided end-to-end technical and non-technical support across multiple regions (North America, Canada, India), building strong problem-solving and communication skills.",
+            "Supported diverse platforms including live chat, email, and voice, gaining hands-on experience with ticketing systems, SLA adherence, and multi-channel workflows.",
+            "Recognized with 'Customer Obsession', 'Super-Hit', and 'Mega-Hit' awards for delivering consistent, high-quality support experiences.",
+            "Completed ACES Stage 1 and 2 certifications, demonstrating data-driven process improvement and operational excellence.",
+            "Acted as a Subject Matter Expert (SME), mentoring new associates, troubleshooting escalations, and collaborating cross-functionally—skills directly applicable to Agile/DevOps environments.",
+          ]          
     },
-    {
-        title: "Full stack Developer",
-        company_name: "Meta",
-        icon: meta,
-        iconBg: "#a2d2ff",
-        date: "Jan 2023 - Present",
-        points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
-        ],
-    },
+    // {
+    //     title: "Web Developer",
+    //     company_name: "Shopify",
+    //     icon: shopify,
+    //     iconBg: "#b7e4c7",
+    //     date: "Jan 2022 - Jan 2023",
+    //     points: [
+    //         "Developing and maintaining web applications using React.js and other related technologies.",
+    //         "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
+    //         "Implementing responsive design and ensuring cross-browser compatibility.",
+    //         "Participating in code reviews and providing constructive feedback to other developers.",
+    //     ],
+    // },
+    // {
+    //     title: "Full stack Developer",
+    //     company_name: "Meta",
+    //     icon: meta,
+    //     iconBg: "#a2d2ff",
+    //     date: "Jan 2023 - Present",
+    //     points: [
+    //         "Developing and maintaining web applications using React.js and other related technologies.",
+    //         "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
+    //         "Implementing responsive design and ensuring cross-browser compatibility.",
+    //         "Participating in code reviews and providing constructive feedback to other developers.",
+    //     ],
+    // },
 ];
 
 export const socialLinks = [
