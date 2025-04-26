@@ -44,7 +44,7 @@ const App = () => {
             transition={{ duration: 1 }}
           >
             {screenState === "typing" && (
-              <motion.h1 className="text-white text-[8vw] sm:text-[7vw] md:text-[5vw] font-bold">
+              <motion.h1 className="text-white text-[8vw] sm:text-[6vw] font-bold">
                 Hello, I'm{" "}
                 <span className="blue-gradient_text font-semibold drop-shadow-lg">
                   <Typewriter
@@ -59,7 +59,7 @@ const App = () => {
             )}
 
             {screenState === "drag" && (
-              <motion.div className="text-white text-lg sm:text-xl md:text-2xl space-y-4 flex flex-col items-center">
+              <motion.div className="text-white text-lg sm:text-xl space-y-4 flex flex-col items-center">
                 <div className="flex items-center space-x-3">
                   <span>Drag your mouse to explore island</span>
                   <motion.div
@@ -84,7 +84,7 @@ const App = () => {
             )}
 
             {screenState === "loading" && (
-              <motion.p className="text-white text-lg sm:text-xl md:text-2xl animate-pulse">
+              <motion.p className="text-white text-lg animate-pulse">
                 Loading Prime Island...<br />
                 Ensure a stable internet connection.
               </motion.p>
@@ -128,138 +128,6 @@ const App = () => {
 };
 
 export default App;
-
-
-// import { useState, useEffect } from "react";
-// import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-// import { Home, About, Projects, Contact } from "./pages/index";
-// import Navbar from "./components/Navbar";
-// import { Typewriter } from "react-simple-typewriter";
-// import { motion } from "framer-motion";
-// import {
-//   FaHandPointer,
-//   FaArrowUp,
-//   FaArrowDown,
-//   FaArrowLeft,
-//   FaArrowRight,
-// } from "react-icons/fa";
-
-// const App = () => {
-//   const [screenState, setScreenState] = useState("typing");
-//   const [showMainContent, setShowMainContent] = useState(false);
-
-//   useEffect(() => {
-//     const timeout1 = setTimeout(() => setScreenState("drag"), 4000); // 4s typing
-//     const timeout2 = setTimeout(() => setScreenState("loading"), 6000); // 2s drag
-//     const timeout3 = setTimeout(() => setScreenState("image"), 9000); // 3s loading
-
-//     return () => {
-//       clearTimeout(timeout1);
-//       clearTimeout(timeout2);
-//       clearTimeout(timeout3);
-//     };
-//   }, []);
-
-//   const handleEnterWorld = () => {
-//     setScreenState("exit");
-//     setTimeout(() => setShowMainContent(true), 1000);
-//   };
-
-//   return (
-//     <Router>
-//       <main className={`min-h-screen w-full flex justify-center items-center ${showMainContent ? "bg-transparent" : "bg-black"}`}>
-//         {!showMainContent && (
-//           <motion.div
-//             className="absolute inset-0 z-50 flex flex-col justify-center items-center text-center px-4"
-//             initial={{ opacity: 1 }}
-//             animate={{ opacity: screenState === "exit" ? 0 : 1 }}
-//             transition={{ duration: 1 }}
-//           >
-//             {screenState === "typing" && (
-//               <motion.h1 className="text-white text-[8vw] sm:text-[6vw] font-bold">
-//                 Hello, I'm{" "}
-//                 <span className="blue-gradient_text font-semibold drop-shadow-lg">
-//                   <Typewriter
-//                     words={["Abhishek Dhananjay Jadhav"]}
-//                     loop={1}
-//                     typeSpeed={80}
-//                     deleteSpeed={50}
-//                     cursor
-//                   />
-//                 </span>
-//               </motion.h1>
-//             )}
-
-//             {screenState === "drag" && (
-//               <motion.div className="text-white text-lg sm:text-xl space-y-4 flex flex-col items-center">
-//                 <div className="flex items-center space-x-3">
-//                   <span>Drag your mouse to explore island</span>
-//                   <motion.div
-//                     animate={{ y: [0, -10, 0] }}
-//                     transition={{ repeat: Infinity, duration: 1.2, ease: "easeInOut" }}
-//                   >
-//                     <FaHandPointer className="text-blue-400 text-3xl" />
-//                   </motion.div>
-//                 </div>
-
-//                 <span className="text-sm sm:text-base font-bold tracking-wider">OR</span>
-
-//                 <div className="flex items-center space-x-2">
-//                   <span>Use</span>
-//                   <FaArrowUp />
-//                   <FaArrowLeft />
-//                   <FaArrowDown />
-//                   <FaArrowRight />
-//                   <span>keys</span>
-//                 </div>
-//               </motion.div>
-//             )}
-
-//             {screenState === "loading" && (
-//               <motion.p className="text-white text-lg animate-pulse">
-//                 Loading Prime Island...<br />
-//                 Ensure a stable internet connection.
-//               </motion.p>
-//             )}
-
-//             {screenState === "image" && (
-//               <>
-//                 <motion.img
-//                   src="/prime2.png"
-//                   alt="Prime Logo"
-//                   className="w-2/3 max-w-md rounded-lg shadow-lg"
-//                   initial={{ scale: 0.9, opacity: 0 }}
-//                   animate={{ scale: 1, opacity: 1 }}
-//                   transition={{ duration: 1 }}
-//                 />
-//                 <motion.button
-//                   onClick={handleEnterWorld}
-//                   className="mt-6 px-8 py-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white font-bold rounded-xl text-base sm:text-lg uppercase tracking-wider shadow-md hover:scale-105 transition"
-//                 >
-//                   Explore Prime World
-//                 </motion.button>
-//               </>
-//             )}
-//           </motion.div>
-//         )}
-
-//         {showMainContent && (
-//           <motion.div className="w-full min-h-screen">
-//             <Navbar />
-//             <Routes>
-//               <Route path="/" element={<Home />} />
-//               <Route path="/about" element={<About />} />
-//               <Route path="/projects" element={<Projects />} />
-//               <Route path="/contact" element={<Contact />} />
-//             </Routes>
-//           </motion.div>
-//         )}
-//       </main>
-//     </Router>
-//   );
-// };
-
-// export default App;
 
 // import { useState, useEffect } from "react";
 // import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
